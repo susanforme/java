@@ -20,7 +20,7 @@ public class FirstSample {
     System.out.println(ONLY_A_NUMBER);
     // 整型
     final int vacationDays = 12;
-    out.println(vacationDays * vacationDays * MY_PI);
+    out.println("vacationDays:  " + vacationDays * vacationDays * MY_PI);
     // 求平方根
     final double MY_SQRT_VACATION_DAYS = sqrt(vacationDays);
     out.println(MY_SQRT_VACATION_DAYS);
@@ -31,5 +31,9 @@ public class FirstSample {
     final int nx = (int) x;
     out.println(nx == floor(x));
     out.println(nx);
+    // 字符串,注意单引号,双引号区别
+    final char foo = 'h';
+    final String bar = "hello world";
+    out.println(bar.substring(0, 2));
   }
 }
