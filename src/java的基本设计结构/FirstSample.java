@@ -1,7 +1,14 @@
 package java的基本设计结构;
 
-import static java.lang.Math.pow;
-import static java.lang.Math.sqrt;
+import static java.lang.Math.*;
+import static java.lang.System.out;
+
+// 枚举类型,必须生成到主类的外面
+enum Size {
+  LARGE,
+  MIDDLE,
+  SMALL
+};
 
 public class FirstSample {
   // 类常量,可以再这个类中多个方法使用
@@ -13,13 +20,16 @@ public class FirstSample {
     System.out.println(ONLY_A_NUMBER);
     // 整型
     final int vacationDays = 12;
-    System.out.println(vacationDays * vacationDays * MY_PI);
+    out.println(vacationDays * vacationDays * MY_PI);
     // 求平方根
     final double MY_SQRT_VACATION_DAYS = sqrt(vacationDays);
-    System.out.println(MY_SQRT_VACATION_DAYS);
+    out.println(MY_SQRT_VACATION_DAYS);
     // 幂
-    System.out.println(pow(vacationDays, 2));
-    // 强制类型转换
-
+    out.println(pow(vacationDays, 2));
+    // 强制类型转换,相当于Math.floor()
+    final double x = 10.6;
+    final int nx = (int) x;
+    out.println(nx == floor(x));
+    out.println(nx);
   }
 }
