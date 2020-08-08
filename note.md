@@ -69,6 +69,10 @@ public class MyString{
     for (char i = 0; i < str.length(); i++) {
       out.print(str.charAt(i));
     }
+    final int[] codePoints = str.codePoints().toArray(); // 生成int值的流
+    final String str2 = new String(codePoints, 0, codePoints.length); // 将码点数组转换为字符串
+    out.println(codePoints.toString()); // [I@4411d970
+    out.println(str2); // 我有一头小毛驴,我从来也不骑.
   }
 }
 ```
