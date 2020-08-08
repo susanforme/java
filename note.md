@@ -1,6 +1,7 @@
 # java
 
 ## 数值
+
 ```java
 package java的基本设计结构;
 
@@ -33,7 +34,9 @@ public class FirstSample {
 ```
 
 ## 字符串
-java没有内置的字符串类型,而是在标准Java类库中提供了预定义类,叫做String.Java字符串是由char值序列组成.
+
+java 没有内置的字符串类型,而是在标准 Java 类库中提供了预定义类,叫做 String.Java
+字符串是由 char 值序列组成.
 
 ```java
 public class MyString{
@@ -69,10 +72,21 @@ public class MyString{
     for (char i = 0; i < str.length(); i++) {
       out.print(str.charAt(i));
     }
+    //字符串转换为流
     final int[] codePoints = str.codePoints().toArray(); // 生成int值的流
     final String str2 = new String(codePoints, 0, codePoints.length); // 将码点数组转换为字符串
     out.println(codePoints.toString()); // [I@4411d970
     out.println(str2); // 我有一头小毛驴,我从来也不骑.
+
+    /* 构建字符串,有时候需要较短字符串构建字符串,按键或者来自文件中的单词,采用字符串连接的效率较低,每次连接都会生成一个新的String对象,所以使用
+    StringBuilder类,可以避免问题
+    */
+    final StringBuilder builder = new StringBuilder("12");
+    builder.append("hello ");
+    builder.append(" world");
+    // 在需要使用字符串的时候调用toString方法
+    final String completeStr = builder.toString();
+    out.println(completeStr);
   }
 }
 ```

@@ -14,10 +14,14 @@ public class FirstSample {
   public static final double MY_PI = 3.14;
   // 入口文件
   public static void main(final String[] args) {
-    final String str = "我有一头小毛驴,我从来也不骑.";
-    final int[] codePoints = str.codePoints().toArray(); // 生成int值的流
-    final String str2 = new String(codePoints, 0, codePoints.length); // 将码点数组转换为字符串
-    out.println(codePoints.toString()); // [I@4411d970
-    out.println(str2); // 我有一头小毛驴,我从来也不骑.
+    /* 构建字符串,有时候需要较短字符串构建字符串,按键或者来自文件中的单词,采用字符串连接的效率较低,每次连接都会生成一个新的String对象,所以使用
+    StringBuilder类,可以避免问题
+    */
+    final StringBuilder builder = new StringBuilder();
+    builder.append("hello");
+    builder.append("world");
+    // 在需要使用字符串的时候调用toString方法
+    final String completeStr = builder.toString();
+    out.println(completeStr + ", " + builder.length());
   }
 }
