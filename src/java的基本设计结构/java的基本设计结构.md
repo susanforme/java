@@ -107,12 +107,15 @@ import static java.lang.System.out;
 
 public class InAndOut {
   public static void main(final String[] args) {
-    // 输入,构造一个Scanner对象,并与标准输入流System.in关联
+    
+// 输入,构造一个Scanner对象,并与标准输入流System.in关联
     final Scanner in = new Scanner(System.in);
     final String name = in.nextLine(); // 读取当前行
     final String firstName = in.next(); // 读取一个单词,空格分界
     final int age = in.nextInt(); // 读取一个整数,空格分界
     out.println("Hello, " + name + " or " + firstName + " you will be " + age); // 输出
+   
+   
     // 因为输入是可见的,所以Scanner类不适合从控制台读取密码,
     final Console cons = System.console(); // 不在命令行中调用为null
     if (cons != null) {
@@ -122,7 +125,41 @@ public class InAndOut {
     } else {
       System.out.println("请在命令行中调用");
     }
+
+    // 格式化输出
+    final double x = 10000.0 / 3.0;
+    // 8个字符宽度和小数点后2位
+    System.out.printf("%8.2f\n", x);
+    // 替换字符
+    System.out.printf("hello,%s,Next year you will be %d", "rzc", 20);
+    
+    // 文件的读取
+    try {
+    //扫描器
+      final Scanner in =
+          // 以项目根目录为路径
+          new Scanner(Paths.get("./src/java的基本设计结构/java的基本设计结构.md"), StandardCharsets.UTF_8);
+      for (int i = 0; i < 100; i++) {
+        //in.next()像使用System.in一样读取
+        System.out.println(in.next());
+      }
+    } catch (final IOException e) {
+      e.printStackTrace();
+    }
+
+    // 文件的写入
+    try {
+      // 想对路径报错文件不存在,文件名则会在根目录创建
+      final PrintWriter out = new PrintWriter("./java的基本设计结构/hello.txt", StandardCharsets.UTF_8);
+      // 像使用System.out一样使用
+      out.println("wo ai ni");
+      out.close();
+    } catch (final IOException e) {
+      e.printStackTrace();
+    }
   }
 }
 
 ```
+
+## 控制流程
