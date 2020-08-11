@@ -163,3 +163,39 @@ public class InAndOut {
 ```
 
 ## 控制流程
+与任何程序设计语言一样， Java 使用条件语句和循环结构确定控制流程。本节先讨论条
+件语句， 然后讨论循环语句，最后介绍看似有些笨重的 switch 语句，当需要对某个表达式的
+多个值进行检测时， 可以使用 switch 语句。
+
+```java
+package java的基本设计结构;
+/*
+ * @Author susan Email: rzc307853639@gmail.com.
+ * @Date time: 2020/8/11 21:01.
+ */
+
+public class controlFlow {
+  public static void main(final String[] args) {
+    //     块作用域
+    //     如下正确
+    int n;
+    {
+      int k;
+      //int n; 错误,不能在嵌套的作用域声明
+    }
+    // 条件语句
+    final double a = Math.random();
+    if (a > 0.5) {
+      System.out.println(true);
+    } else {
+      System.out.println(false);
+    }
+    // 循环
+    int count = 0;
+    while (Math.random() > 0.5) {
+      System.out.println(++count);
+    }
+    }
+  }
+
+```
