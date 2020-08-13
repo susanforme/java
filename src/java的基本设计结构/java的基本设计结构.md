@@ -194,6 +194,10 @@ public class controlFlow {
     int count = 0;
     while (Math.random() > 0.5) {
       System.out.println(++count);
+      }
+    // 确定循环
+    for (int i = 1; i < 10; i++) {
+      System.out.println(i);
     }
     }
   }

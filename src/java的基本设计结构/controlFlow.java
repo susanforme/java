@@ -6,10 +6,7 @@ package java的基本设计结构;
 
 public class controlFlow {
   public static void main(final String[] args) {
-    // 循环
-    int count = 0;
-    while (Math.random() > 0.5) {
-      System.out.println(++count);
-    }
+    // 确定循环
+    for (int i = 1; i < 10; i++) {}
   }
 }
