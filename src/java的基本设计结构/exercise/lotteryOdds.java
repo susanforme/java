@@ -15,11 +15,16 @@ public class lotteryOdds {
     final int max = scan.nextInt();
     System.out.println("你想要抽几个数");
     final int num = scan.nextInt();
+    // 关闭输入器
+    scan.close();
     // 共有多少种方法
     double odds = 1;
     for (int i = 1; i <= num; i++) {
-      // ((max - i + 1) / i);  (max - i + 1) / i: 浮点上下文中的整数除法,两个整数相除，结果必定是整数，
-      // 如果用float、double等数据类型接收，语法上不构成错误，但是会丢失精度。
+      /* ((max - i + 1) / i);  (max - i + 1) / i: 浮点上下文中的整数除法,两个整数相除，结果必定是整数，
+      如果用float、double等数据类型接收，语法上不构成错误，但是会丢失精度。
+      int a =1;
+      int b=2;
+      double c = a/b;  0.0 */
       odds = odds * (max - i + 1) / i;
     }
     System.out.println(1 / odds);

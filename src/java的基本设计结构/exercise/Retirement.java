@@ -16,6 +16,8 @@ public class Retirement {
     final double money = scan.nextDouble();
     System.out.print("How much money will you contribute every year? ");
     final double perYearMoney = scan.nextDouble();
+    // 关闭输入器
+    scan.close();
     // 利率
     final double rate = 0.03;
     int year = 0;

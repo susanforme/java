@@ -107,15 +107,15 @@ import static java.lang.System.out;
 
 public class InAndOut {
   public static void main(final String[] args) {
-    
+
 // 输入,构造一个Scanner对象,并与标准输入流System.in关联
     final Scanner in = new Scanner(System.in);
     final String name = in.nextLine(); // 读取当前行
     final String firstName = in.next(); // 读取一个单词,空格分界
     final int age = in.nextInt(); // 读取一个整数,空格分界
     out.println("Hello, " + name + " or " + firstName + " you will be " + age); // 输出
-   
-   
+
+
     // 因为输入是可见的,所以Scanner类不适合从控制台读取密码,
     final Console cons = System.console(); // 不在命令行中调用为null
     if (cons != null) {
@@ -132,7 +132,7 @@ public class InAndOut {
     System.out.printf("%8.2f\n", x);
     // 替换字符
     System.out.printf("hello,%s,Next year you will be %d", "rzc", 20);
-    
+
     // 文件的读取
     try {
     //扫描器
@@ -163,9 +163,10 @@ public class InAndOut {
 ```
 
 ## 控制流程
-与任何程序设计语言一样， Java 使用条件语句和循环结构确定控制流程。本节先讨论条
-件语句， 然后讨论循环语句，最后介绍看似有些笨重的 switch 语句，当需要对某个表达式的
-多个值进行检测时， 可以使用 switch 语句。
+
+与任何程序设计语言一样， Java 使用条件语句和循环结构确定控制流程。本节先讨论条件
+语句， 然后讨论循环语句，最后介绍看似有些笨重的 switch 语句，当需要对某个表达式
+的多个值进行检测时， 可以使用 switch 语句。
 
 ```java
 package java的基本设计结构;
@@ -198,8 +199,35 @@ public class controlFlow {
     // 确定循环
     for (int i = 1; i < 10; i++) {
       System.out.println(i);
+     }
     }
-    }
+      //浮点上下文中的整数除法,两个整数相除，结果必定是整数，
+	int a =1;
+  int b=2;
+  double c = a/b; //0.0
+    // 多重选择switch
+   System.out.println("write your number");
+   final Scanner scan = new Scanner(System.in);
+     final int num = scan.nextInt();
+        switch (num) {
+          case 1:
+            {
+              System.out.println(1);
+              System.out.println("hi 1");
+              break;
+            }
+          case 2:
+            {
+              System.out.println(2);
+              System.out.print("hi 2");
+              break;
+            }
+          default:
+            {
+              System.out.println("this is default");
+              break;
+            }
+        }
   }
 
 ```
