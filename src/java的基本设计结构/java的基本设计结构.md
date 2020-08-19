@@ -231,3 +231,40 @@ public class controlFlow {
   }
 
 ```
+
+## 数组
+
+```java
+    // 数组是用来存储同一类型值的集合,通过下标可以访问数组中的每一个值,类似ts的元组
+    final int[] a = new int[100];
+    for (int i = 0; i < a.length; i++) {
+      a[i] = i;
+    }
+    System.out.println(Arrays.toString(a));
+
+    // for each 循环
+    final int[] a = new int[100];
+    for (int i = 0; i < a.length; i++) {
+      a[i] = i;
+    }
+    for (final int element : a) {
+      System.out.println(element);
+    }
+
+    // 数组拷贝,在拷贝的时候是拷贝的指针,指向引用的同一个数组
+    final int[] a = new int[] {1};
+    final int[] b = a;
+    System.out.println(Arrays.toString(a));//1
+    a[0] = 3;
+    System.out.println(Arrays.toString(b)); //3
+    System.out.println(a == b); //true
+
+    // 数组拷贝,在拷贝的时候是拷贝的指针,指向引用的同一个数组,    copyOf为深拷贝
+    final int[] a = new int[] {1};
+    final int[] b = Arrays.copyOf(a, a.length * 2); // 第二个参数是数组长度,如果数组是数值,
+    // 多余的参数被赋值为0,布尔值则为false,小于长度则为截取的长度
+    System.out.println(Arrays.toString(a)); // 1
+    a[0] = 3;
+    System.out.println(Arrays.toString(b)); // 1
+    System.out.println(a == b); // false
+```
