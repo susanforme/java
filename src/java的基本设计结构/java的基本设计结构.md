@@ -1,3 +1,9 @@
+<!--
+ * @Author: Spring Breeze
+ * @Date: 2020-08-05 21:22:46
+ * @FilePath: \myTestJavaApp\src\java的基本设计结构\java的基本设计结构.md
+-->
+
 # java
 
 ## 数值
@@ -267,4 +273,15 @@ public class controlFlow {
     a[0] = 3;
     System.out.println(Arrays.toString(b)); // 1
     System.out.println(a == b); // false
+
+    // 命令行参数
+    // java Message s
+    // 得到参数 args [s]
+    if (args.length == 0) {
+      System.out.print('0');
+    } else if (args.length == 1) {
+      System.out.print(1);
+    } else {
+      System.out.print("i dont  know");
+    }
 ```
