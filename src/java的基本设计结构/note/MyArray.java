@@ -6,17 +6,12 @@ package java的基本设计结构.note;
  * @Description java数组
  */
 
+import java.util.Arrays;
+
 public class MyArray {
   public static void main(final String[] args) {
-    // 命令行参数
-    // java Message s
-    // 得到参数 args [s]
-    if (args.length == 0) {
-      System.out.print('0');
-    } else if (args.length == 1) {
-      System.out.print(1);
-    } else {
-      System.out.print("i dont  know");
-    }
+    // 数组排序
+    final int[] a = new int[] {1, 2};
+    System.out.print(Arrays.binarySearch(a, 0, a.length, 2));
   }
 }

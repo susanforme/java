@@ -241,7 +241,7 @@ public class controlFlow {
 ## 数组
 
 ```java
-    // 数组是用来存储同一类型值的集合,通过下标可以访问数组中的每一个值,类似ts的元组
+    // 数组是用来存储同一类型值的集合,通过下标可以访问数组中的每一个值,类似ts的元组,定义长度就不能传递默认值,
     final int[] a = new int[100];
     for (int i = 0; i < a.length; i++) {
       a[i] = i;
@@ -284,4 +284,10 @@ public class controlFlow {
     } else {
       System.out.print("i dont  know");
     }
+
+    // 数组排序
+    final int[] a = new int[] {1, 10, 2, 3};
+    // 无返回值,在原数组上改变
+    Arrays.sort(a);
+    System.out.println(Arrays.toString(a)); // 1 2 3 10
 ```
