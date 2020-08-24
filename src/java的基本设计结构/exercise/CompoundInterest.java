@@ -26,6 +26,6 @@ public class CompoundInterest {
       }
       System.out.println("\n");
     }
-    //    System.out.println(Arrays.deepToString(balances));
+    // System.out.println(Arrays.deepToString(balances));
   }
 }
