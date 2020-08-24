@@ -287,7 +287,24 @@ public class controlFlow {
 
     // 数组排序
     final int[] a = new int[] {1, 10, 2, 3};
+
     // 无返回值,在原数组上改变
     Arrays.sort(a);
     System.out.println(Arrays.toString(a)); // 1 2 3 10
+
+    // 多维数组
+    final double[][] balances = new double[3][3];
+    final double[][] magics = new double[][] {{1, 2, 3}, {1, 2, 3}};
+    for (int i = 0; i < balances.length; i++) {
+      for (int j = 0; j < balances[i].length; j++) {
+        balances[i][j] = Math.random();
+      }
+    }
+    System.out.println(Arrays.deepToString(balances));
+    //    System.out.println(Arrays.deepToString(magics));
+    for (final double[] i : magics) {
+      for (final double j : i) {
+        System.out.print(j + ", ");
+      }
+    }
 ```
