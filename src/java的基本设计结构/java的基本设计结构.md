@@ -210,12 +210,12 @@ public class controlFlow {
       //浮点上下文中的整数除法,两个整数相除，结果必定是整数，
 	int a =1;
   int b=2;
-  double c = a/b; //0.0
+  double c = a/b; // 0.0
     // 多重选择switch
-   System.out.println("write your number");
+    //  System.out.println("write your number");
    final Scanner scan = new Scanner(System.in);
-     final int num = scan.nextInt();
-        switch (num) {
+   final int num = scan.nextInt();
+        switch (num){
           case 1:
             {
               System.out.println(1);
@@ -241,11 +241,14 @@ public class controlFlow {
 ## 数组
 
 ```java
+
+public class MyArray {
+  public static void main(final String[] args) {
     // 数组是用来存储同一类型值的集合,通过下标可以访问数组中的每一个值,类似ts的元组,定义长度就不能传递默认值,
-    final int[] a = new int[100];
-    for (int i = 0; i < a.length; i++) {
+    final int[] a = new int[100] ;
+ for (int i = 0; i < a.length; i++) {
       a[i] = i;
-    }
+     }
     System.out.println(Arrays.toString(a));
 
     // for each 循环
@@ -307,4 +310,20 @@ public class controlFlow {
         System.out.print(j + ", ");
       }
     }
+
+    // 不规则数组
+    final double[][] balances = new double[10][6];
+    for (int i = 0; i < balances.length; i++) {
+      for (int j = 0; j < balances[i].length; j++) {
+        balances[i][j] = Math.random() * 100;
+      }
+    }
+    for (final double[] k : balances) {
+      for (final double j : k) {
+        System.out.printf("%10.2f", j);
+      }
+      System.out.print("\n");
+    }
+  }
+}
 ```

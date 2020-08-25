@@ -6,24 +6,20 @@ package java的基本设计结构.note;
  * @Description java数组 .
  */
 
-import java.util.Arrays;
-
 public class MyArray {
   public static void main(final String[] args) {
-    // 多维数组
-    final double[][] balances = new double[3][3];
-    final double[][] magics = new double[][] {{1, 2, 3}, {1, 2, 3}};
+    // 不规则数组
+    final double[][] balances = new double[10][6];
     for (int i = 0; i < balances.length; i++) {
       for (int j = 0; j < balances[i].length; j++) {
-        balances[i][j] = Math.random();
+        balances[i][j] = Math.random() * 100;
       }
     }
-    System.out.println(Arrays.deepToString(balances));
-    //    System.out.println(Arrays.deepToString(magics));
-    for (final double[] i : magics) {
-      for (final double j : i) {
-        System.out.print(j + ", ");
+    for (final double[] k : balances) {
+      for (final double j : k) {
+        System.out.printf("%10.2f", j);
       }
+      System.out.print("\n");
     }
   }
 }
