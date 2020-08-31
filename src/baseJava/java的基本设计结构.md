@@ -1,7 +1,7 @@
 <!--
  * @Author: Spring Breeze
  * @Date: 2020-08-05 21:22:46
- * @FilePath: \myTestJavaApp\src\java的基本设计结构\java的基本设计结构.md
+ * @FilePath: \myTestJavaApp\src\baseJava\baseJava.md
 -->
 
 # java
@@ -9,7 +9,7 @@
 ## 数值
 
 ```java
-package java的基本设计结构;
+package baseJava;
 
 import static java.lang.Math.*;
 import static java.lang.System.out;
@@ -100,7 +100,7 @@ public class MyString{
 ## 输入输出
 
 ```java
-package java的基本设计结构;
+package baseJava;
 
 import java.util.Scanner;
 import java.io.Console;
@@ -144,7 +144,7 @@ public class InAndOut {
     //扫描器
       final Scanner in =
           // 以项目根目录为路径
-          new Scanner(Paths.get("./src/java的基本设计结构/java的基本设计结构.md"), StandardCharsets.UTF_8);
+          new Scanner(Paths.get("./src/baseJava/baseJava.md"), StandardCharsets.UTF_8);
       for (int i = 0; i < 100; i++) {
         //in.next()像使用System.in一样读取
         System.out.println(in.next());
@@ -156,7 +156,7 @@ public class InAndOut {
     // 文件的写入
     try {
       // 想对路径报错文件不存在,文件名则会在根目录创建
-      final PrintWriter out = new PrintWriter("./java的基本设计结构/hello.txt", StandardCharsets.UTF_8);
+      final PrintWriter out = new PrintWriter("baseJava/hello.txt", StandardCharsets.UTF_8);
       // 像使用System.out一样使用
       out.println("wo ai ni");
       out.close();
@@ -175,7 +175,7 @@ public class InAndOut {
 的多个值进行检测时， 可以使用 switch 语句。
 
 ```java
-package java的基本设计结构;
+package baseJava;
 /*
  * @Author susan Email: rzc307853639@gmail.com.
  * @Date time: 2020/8/11 21:01.

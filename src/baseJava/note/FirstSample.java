@@ -1,4 +1,4 @@
-package java的基本设计结构.note;
+package baseJava.note;
 
 import static java.lang.System.out;
 

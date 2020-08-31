@@ -1,4 +1,4 @@
-package java的基本设计结构.exercise;
+package baseJava.exercise;
 /*
  * @Author susan Email: rzc307853639@gmail.com.
  * @Date time: 2020/8/11 21:13.
