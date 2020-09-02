@@ -8,7 +8,15 @@ package objectAndClass.note;
 
 public class ObjectAndClass {
   public static void main(final String[] args) {
-    final Employee employee = new Employee("冉志诚", 18, 4000);
-    System.out.print(employee.logAllMsg());
+    final Employee e1 = new Employee("s", 12, 123);
+    final Employee e2 = new Employee("baseJava", 11, 12323);
+    swap(e1, e2);
+    System.out.println(e1.logAllMsg());
+  }
+
+  public static void swap(Employee x, Employee y) {
+    final Employee e = x;
+    x = y;
+    y = e;
   }
 }

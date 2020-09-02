@@ -51,4 +51,9 @@ public class Employee {
   public int getNextId() {
     return nextId;
   }
+
+  /** 返回薪水 */
+  public double getSalary() {
+    return this.salary;
+  }
 }
