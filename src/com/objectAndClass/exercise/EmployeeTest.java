@@ -1,4 +1,4 @@
-package objectAndClass.exercise;
+package com.objectAndClass.exercise;
 /*
  * @Author susan .
  * @Email: rzc307853639@gmail.com .
@@ -6,7 +6,7 @@ package objectAndClass.exercise;
  * @Description .
  */
 
-import objectAndClass.note.Employee;
+import com.objectAndClass.note.Employee;
 
 public class EmployeeTest {
   public static void main(final String[] args) {

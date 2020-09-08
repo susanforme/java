@@ -1,4 +1,4 @@
-package baseJava.note;
+package com.baseJava.note;
 /*
  * @Author susan .
  * @Email: rzc307853639@gmail.com .

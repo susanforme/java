@@ -1,4 +1,4 @@
-package objectAndClass.exercise;
+package com.objectAndClass.exercise;
 /*
  * @Author susan .
  * @Email: rzc307853639@gmail.com .
@@ -12,6 +12,7 @@ public class StaticTest {
     employees[0] = new SimpleEmployee("诚诚", 12);
     employees[1] = new SimpleEmployee("🌸", 13);
     employees[2] = new SimpleEmployee("偶然", 10);
+
     for (final SimpleEmployee e : employees) {
       System.out.println(SimpleEmployee.getNextId());
       System.out.println(e.logMsg());

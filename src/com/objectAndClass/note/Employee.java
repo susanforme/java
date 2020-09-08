@@ -1,4 +1,4 @@
-package objectAndClass.note;
+package com.objectAndClass.note;
 /*
  * @Author susan .
  * @Email: rzc307853639@gmail.com .
@@ -17,7 +17,7 @@ public class Employee {
   /** 每个员工的id */
   private int id = 0;
   /** 静态常量,公司成立时间 */
-  private static final int year = 2000;
+  public static final int year = 2000;
 
   public Employee(final String n, final int a, final double s) {
     this.name = n;

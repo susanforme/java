@@ -1,4 +1,4 @@
-package baseJava.exercise;
+package com.baseJava.exercise;
 /*
  * @Author susan .
  * @Email: rzc307853639@gmail.com.
