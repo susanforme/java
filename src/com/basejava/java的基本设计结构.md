@@ -156,7 +156,7 @@ public class InAndOut {
     // 文件的写入
     try {
       // 想对路径报错文件不存在,文件名则会在根目录创建
-      final PrintWriter out = new PrintWriter("com/baseJava/hello.txt", StandardCharsets.UTF_8);
+      final PrintWriter out = new PrintWriter("com/basejava/hello.txt", StandardCharsets.UTF_8);
       // 像使用System.out一样使用
       out.println("wo ai ni");
       out.close();

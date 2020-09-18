@@ -1,4 +1,4 @@
-package com.baseJava.note;
+package com.basejava.note;
 
 import static java.lang.System.out;
 

@@ -1,4 +1,4 @@
-package com.objectAndClass.note;
+package com.objectandclass.note;
 /*
  * @Author susan .
  * @Email: rzc307853639@gmail.com .

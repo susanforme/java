@@ -1,4 +1,4 @@
-package com.objectAndClass.exercise;
+package com.objectandclass.exercise;
 /*
  * @Author susan .
  * @Email: rzc307853639@gmail.com .
@@ -6,7 +6,7 @@ package com.objectAndClass.exercise;
  * @Description 测试在java中参数的传递是按值还是引用传递
  */
 
-import com.objectAndClass.note.Employee;
+import com.objectandclass.note.Employee;
 
 public class ParamTest {
   public static void main(final String[] args) {

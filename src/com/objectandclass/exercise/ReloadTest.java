@@ -1,4 +1,4 @@
-package com.objectAndClass.exercise;
+package com.objectandclass.exercise;
 /*
  * @Author susan .
  * @Email: rzc307853639@gmail.com .
