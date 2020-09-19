@@ -1,20 +1,3 @@
-# 继承
-
-## 阻止继承
-
-```java
-// 使用final修饰符的类,不能被扩展
-public final class Test extends ManageTest{
-    
-}
-```
-
-## 抽象类
-
-1. 员工是一个人,学生也是一个人,所以人Person是员工或学生的抽象,但实际上只会把这个类用来派生其他类,而不是实例化需要的类
-2. 抽象类中一般不能包含具体方法的实现
-
-```java
 package com.extendsclass.exercise;
 
 /*
@@ -53,20 +36,3 @@ class ChengCheng extends Person {
     return this.getName() + " student major in" + this.major;
   }
 }
-
-```
-
-### protected
-
-对本包和所有子类可见,一般用来修饰方法
-
-## Object
-
-所有类的超类
-
-### Object类型的变量
-
-在java中只有基本数据类型不是对象,例如数值,字符,布尔类型都不是对象
-
-### 相等测试与变量
-

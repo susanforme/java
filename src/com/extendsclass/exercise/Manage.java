@@ -43,5 +43,7 @@ class Test {
       // 输出的错误信息
       System.out.println(manage.logAllMsg());
     }
+    System.out.println("---------------------------");
+    System.out.println(someManage[1] instanceof Manage);
   }
 }
