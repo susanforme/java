@@ -56,4 +56,8 @@ public class Employee {
   public double getSalary() {
     return this.salary;
   }
+  /** 返回名字 */
+  public String getName() {
+    return this.name;
+  }
 }

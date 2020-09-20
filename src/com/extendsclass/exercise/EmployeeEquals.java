@@ -13,7 +13,10 @@ public class EmployeeEquals {
     this.name = name;
   }
 
-  // 声明的显示参数是Employee,并没有覆盖Object类的equals方法,因为签名不同,方法重载了
+  /* 声明的显示参数是Employee,并没有覆盖Object类的equals方法,因为签名不同,方法重载了
+   * @Override没什么实际作用,写上可以当注释用,方便阅读
+   * 编译器可以验证是否是父类中所有的方法,没有则报错
+   */
   @Override
   public boolean equals(Object other) {
     return other != null
