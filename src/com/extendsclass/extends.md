@@ -239,3 +239,72 @@ public class MyArrayList {
 1. 包装器类有显而易见的名字
 2. Integer Float Long Double Short Byte Character Boolean(包装器类是不可变的)
 3. 一旦构造了包装器,其中的值就不允许改变,同时包装器类还是final不允许构建子类
+
+```java
+package com.extendsclass.note;
+
+import java.util.ArrayList;
+
+/*
+ * @Author 不灵不落我是个机器人 .
+ * @Email: rzc307853639@gmail.com .
+ * @Date time: 2020/09/21/21:15 .
+ * @Description .
+ */
+public class Boxing {
+  public static void main(String[] args) {
+    // 所以定义一个整型数组列表,但是菱形语法中只能传递类,而不能是基本数据类型如int
+    ArrayList<Integer> someNum = new ArrayList<>();
+    // 在这里会触发一个装箱操作
+    someNum.add(1);
+    // 等同于,称之为自动装箱
+    someNum.add(Integer.valueOf(2));
+    // 相反的是,给定一个int,会自动转为Integer
+    int x = someNum.get(1);
+    int y = someNum.get(1).intValue();
+    // 但是==检测的包装器对象的内存位置
+    Integer a = 1000;
+    Integer b = 1000;
+    // false,如果a,b小于100就会成功
+    System.out.println(a == b);
+    System.out.println(Boxing.max(new double[] {1, 2, 3}));
+  }
+
+  public static double max(double... x) {
+    if (x.length == 0) {
+      throw new Error("不要传空数组啊");
+    }
+    double max = x[0];
+    for (double v : x) {
+      if (v > max) {
+        max = v;
+      }
+    }
+    return max;
+  }
+}
+
+```
+
+## 参数数量可变的方法
+
+1. 也被称为变参方法例如 System.out.println("%d",n) System.out.println("%d",n,"widgets)
+
+2. 调用的不同的方法,但是传入了不同数量的参数
+
+```java
+  public static double max(double... x) {
+    if (x.length == 0) {
+      throw new Error("不要传空数组啊");
+    }
+    double max = x[0];
+    for (double v : x) {
+      if (v > max) {
+        max = v;
+      }
+    }
+    return max;
+  }
+```
+
+## 枚举类

@@ -24,5 +24,19 @@ public class Boxing {
     Integer b = 1000;
     // false,如果a,b小于100就会成功
     System.out.println(a == b);
+    System.out.println(Boxing.max(new double[] {1, 2, 3}));
+  }
+
+  public static double max(double... x) {
+    if (x.length == 0) {
+      throw new Error("不要传空数组啊");
+    }
+    double max = x[0];
+    for (double v : x) {
+      if (v > max) {
+        max = v;
+      }
+    }
+    return max;
   }
 }
