@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 public interface Compare<T> {
   // 自动是public
-  public int compareTo(T o);
+  int compareTo(T o);
 }
 
 class EmployeeWithInterface extends HashEmployee implements Comparable<EmployeeWithInterface> {

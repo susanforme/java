@@ -109,3 +109,85 @@ class EmployeeInterfaceTest implements Employee {
 class Employee implements Cloneable,Comparable
 ```
 
+### 接口与抽象类
+
+为什么需要接口
+
+```java
+abstract class Comparable{
+    public abstract int compareTo();
+}
+interface Comparable{
+    int compareTo();
+}
+```
+
+那是因为,对象只能有一个超类,但是可以继承多个接口
+
+### 默认方法
+
+```java
+interface Default {
+  int size();
+  // 默认方法,可以不用重写,默认继承该方法
+  default boolean isEmpty() {
+    return size() == 0;
+  }
+
+  default String logDefault() {
+    return "default";
+  }
+}
+
+class DefaultTest implements Default {
+  @Override
+  public int size() {
+    return 0;
+  }
+}
+```
+
+### 默认方法冲突
+
+如果接口将一个方法定义为默认方法,然后又在超类中定义同样的方法,
+
+1. 超类中优先
+2. 接口冲突,如果继承了两个接口的同时,两个接口提供了相同的默认方法,那么就必须在类中覆盖方法
+
+```java
+interface Default {
+  default String logDefault() {
+    return "default";
+  }
+}
+
+interface Named {
+  default String logDefault() {
+    return "named";
+  }
+}
+
+class DefaultTest implements Default, Named {
+  @Override
+  public int size() {
+    return 0;
+  }
+
+  @Override
+  public String logDefault() {
+    return Default.super.logDefault();
+  }
+}
+```
+
+3. 在Named接口没有为getName提供默认接口,java同样会报错
+
+```java
+interface Named {
+   String logDefault();
+}
+```
+
+**类优先** 在同等条件下,类中的方法属性总是优先的
+
+### 接口与回调
