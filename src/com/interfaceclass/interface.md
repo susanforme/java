@@ -191,3 +191,224 @@ interface Named {
 **类优先** 在同等条件下,类中的方法属性总是优先的
 
 ### 接口与回调
+
+```java
+package com.interfaceclass.exercise;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.Instant;
+
+/*
+ * @Author 不灵不落我是个机器人 .
+ * @Email: rzc307853639@gmail.com .
+ * @Date time: 2020/09/24/21:26 .
+ * @Description 定时器
+ */
+
+// interface ActionListener {
+//  // 当到达指定的时间间隔,定时器就调用actionPerformed方法
+//  void actionPerformed(ActionEvent event);
+// }
+
+public class TimePrinter implements ActionListener {
+  public void actionPerformed(final ActionEvent event) {
+    System.out.println("the time is " + Instant.ofEpochMilli(event.getWhen()));
+    // 工具箱中的方法,作用是响一声
+    Toolkit.getDefaultToolkit().beep();
+  }
+}
+
+class Test {
+  public static void main(final String[] args) {
+    final TimePrinter timePrinter = new TimePrinter();
+    // 构造一个定时器,每隔delay秒,通知listener一次
+    final Timer timer = new Timer(1000, timePrinter);
+    // 启动定时器,启动就将会调用监听器的actionPerformed
+    timer.start();
+    // 显示一个包含提示消息和ok按钮的对话框,这个对话框位于parent的中央,为null则在屏幕中央
+    JOptionPane.showMessageDialog(null, "关闭程序?");
+    System.exit(0);
+  }
+}
+
+```
+
+### Comparator接口
+
+String.compareTo可以按照字典顺序比较字符串
+
+如果需要按照字符串长度比较则需要Comparator接口的类的实例
+
+```java
+package com.interfaceclass.exercise;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+/*
+ * @Author 不灵不落我是个机器人 .
+ * @Email: rzc307853639@gmail.com .
+ * @Date time: 2020/09/26/13:17 .
+ * @Description .
+ */
+public class StringCompare implements Comparator<String> {
+  @Override
+  public int compare(final String o1, final String o2) {
+    if (o1.length() == o2.length()) {
+      return 0;
+    }
+    return (o1.length() - o2.length()) > 0 ? 1 : -1;
+  }
+}
+
+class StringCompareTest {
+  public static void main(final String[] args) {
+    final StringCompare stringCompare = new StringCompare();
+    System.out.println(stringCompare.compare("test", "t"));
+    final String[] friends = {"张飞", "我", "不灵不落我是个机器人"};
+    Arrays.sort(friends, stringCompare);
+    System.out.println(Arrays.toString(friends));
+  }
+}
+
+```
+
+### 对象克隆
+
+```java
+package com.interfaceclass.exercise;
+
+import com.extendsclass.exercise.HashEmployee;
+
+/*
+ * @Author 不灵不落我是个机器人 .
+ * @Email: rzc307853639@gmail.com .
+ * @Date time: 2020/09/26/13:32 .
+ * @Description .
+ */
+public class CloneableTest extends HashEmployee implements Cloneable {
+  public CloneableTest(final String n, final int a, final double s) {
+    super(n, a, s);
+  }
+
+  @Override
+  public CloneableTest clone() throws CloneNotSupportedException {
+    return (CloneableTest) super.clone();
+  }
+}
+
+class CloneTest {
+  public static void main(final String[] args) throws CloneNotSupportedException {
+    final CloneableTest cloneableTest = new CloneableTest("诚诚", 12, 123.12);
+    /* final HashEmployee hashEmployee = new HashEmployee("诚诚", 123, 123);
+     * 对象不能直接调用clone,数组可以
+     * hashEmployee.clone(); 报错
+     */
+    final CloneableTest test = cloneableTest;
+    System.out.println(test == cloneableTest); // true
+    System.out.println(cloneableTest.clone() == cloneableTest); // false
+  }
+}
+
+```
+
+## lambda表达式
+
+lambda表达式是一个可传递的代码块,可以在以后执行一次或者多次
+
+lambda表达式必须在每一个分支都返回值,也就是说必须有返回值
+
+```java
+package com.interfaceclass.note;
+
+import java.util.Arrays;
+
+/*
+ * @Author 不灵不落我是个机器人 .
+ * @Email: rzc307853639@gmail.com .
+ * @Date time: 2020/09/26/16:46 .
+ * @Description .
+ */
+public class Lambda {
+  public static void main(final String[] args) {
+    final String[] friends = {"Tom", "Jerry", "Mark"};
+    System.out.println(Arrays.toString(friends));
+    Arrays.sort(friends);
+    System.out.println(Arrays.toString(friends));
+    Arrays.sort(friends, (first, second) -> first.length() - second.length());
+    System.out.println(Arrays.toString(friends));
+  }
+}
+
+```
+
+### 函数式接口
+
+对于只有一个抽象方法的接口,需要这种接口的时候,就可以提供一个lambda表达式,这种接口称为函数式接口
+
+例如,Arrays.sort方法他的第二个参数需要一个实现了Comparator的实例,Comparator就是只有一个方法的接口,所以可以提供一个lambda表达式
+
+```java
+Arrays.sort(friedns,(first,second)->first.length()-second.length());
+```
+
+**在底层,Arrays.sort方法会接受实现了Comparator\<String> 的一个类的对象,在这个对象上调用compare方法,执行这个lambda体**
+
+```java
+/** 定时触发器,简化版*/
+class SimplePrinter {
+  public static void main(final String[] args) {
+    final Timer timer =
+        new Timer(
+            1000,
+            (event) -> {
+              System.out.println("the time is " + Instant.ofEpochMilli(event.getWhen()));
+              Toolkit.getDefaultToolkit().beep();
+            });
+    timer.start();
+    JOptionPane.showMessageDialog(null, "关闭程序?");
+    System.exit(0);
+  }
+}
+
+```
+
+### 方法引用
+
+```java
+public class Lambda {
+  public static void main(final String[] args) {
+      // 等同于 event ->System.out.println(event);
+    final Timer timer = new Timer(1000, System.out::println);
+    timer.start();
+    final String[] strings = {"tom", "jerry", "mark"};
+    Arrays.sort(strings, String::compareToIgnoreCase);
+    System.out.println(Arrays.toString(strings));
+  }
+}
+
+```
+
+格式为
+
+1. object::method
+2. Class:instancemethod
+3. Class:staticMethod
+
+等同于,对象调用方法,但是需要注意的是,只能有一个方法调用不能有其他操作,例如如下便不能以方法引用的形式
+
+```java
+s -> s.length() ==0;
+```
+
+调用了length,然后进行了比较
+
+### 变量作用域
+
+lambda表达式可以捕获外部作用域的变量,在java中,确保所捕获的值是明确而不能改变的
+
+也就是说lambda中引用的外部变量,必须是final
+

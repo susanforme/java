@@ -38,3 +38,18 @@ class Test {
     System.exit(0);
   }
 }
+
+class SimplePrinter {
+  public static void main(final String[] args) {
+    final Timer timer =
+        new Timer(
+            1000,
+            (event) -> {
+              System.out.println("the time is " + Instant.ofEpochMilli(event.getWhen()));
+              Toolkit.getDefaultToolkit().beep();
+            });
+    timer.start();
+    JOptionPane.showMessageDialog(null, "关闭程序?");
+    System.exit(0);
+  }
+}
