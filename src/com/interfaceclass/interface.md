@@ -412,3 +412,181 @@ lambda表达式可以捕获外部作用域的变量,在java中,确保所捕获�
 
 也就是说lambda中引用的外部变量,必须是final
 
+## 内部类
+
+1. 内部类是定义在一个类中的类
+2. 内部类可以对同一个包中的其他类隐藏
+3. 内部类方法可以访问定义这个类的作用域中的数据,包括私有数据
+4. 内部类中的所有字段都必须是final,并初始化为一个编译时常量
+5. 内部类不能有static方法
+
+```java
+package com.interfaceclass.exercise;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.Instant;
+
+/*
+ * @Author 不灵不落我是个机器人 .
+ * @Email: rzc307853639@gmail.com .
+ * @Date time: 2020/09/27/20:24 .
+ * @Description .
+ */
+public class TalkingClock {
+  private final int interval;
+  private final boolean isBeep;
+
+  public TalkingClock(final int interval, final boolean isBeep) {
+    this.interval = interval;
+    this.isBeep = isBeep;
+  }
+
+  public void start() {
+    final Timer timer = new Timer(this.interval, new TimePrinter());
+    timer.start();
+  }
+
+  class TimePrinter implements ActionListener {
+    @Override
+    public void actionPerformed(final ActionEvent e) {
+      System.out.println("the time is " + Instant.ofEpochMilli(e.getWhen()));
+      if (TalkingClock.this.isBeep) {
+        Toolkit.getDefaultToolkit().beep();
+      }
+    }
+  }
+}
+
+class TalkingTest {
+  public static void main(final String[] args) {
+    new TalkingClock(1000, true).start();
+    // 必须要有如下代码才能保持代码运行
+    JOptionPane.showMessageDialog(null, "关闭?");
+    System.exit(0);
+  }
+}
+
+```
+
+实际上在编译器内部,会被转换为两个类文件
+
+### 局部内部类
+
+1. 声明局部类的嘶吼不能有修饰符,局部类的作用域只有在声明的区域有效
+
+```java
+package com.interfaceclass.exercise;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.Instant;
+
+/*
+ * @Author 不灵不落我是个机器人 .
+ * @Email: rzc307853639@gmail.com .
+ * @Date time: 2020/09/27/20:24 .
+ * @Description .
+ */
+public class TalkingClock {
+  private final int interval;
+
+  public TalkingClock(final int interval) {
+    this.interval = interval;
+  }
+
+  public void start(final boolean isBeep) {
+    class TimePrinter implements ActionListener {
+      @Override
+      public void actionPerformed(final ActionEvent e) {
+        System.out.println("the time is " + Instant.ofEpochMilli(e.getWhen()));
+        if (isBeep) {
+          Toolkit.getDefaultToolkit().beep();
+        }
+      }
+    }
+    final Timer timer = new Timer(this.interval, new TimePrinter());
+    timer.start();
+  }
+}
+
+class TalkingTest {
+  public static void main(final String[] args) {
+    new TalkingClock(1000).start(true);
+    // 必须要有如下代码才能保持代码运行
+    JOptionPane.showMessageDialog(null, "关闭?");
+    System.exit(0);
+  }
+}
+
+```
+
+### 匿名内部类
+
+```java
+  public void start(final boolean isBeep) {
+    final ActionListener listener =
+        new ActionListener() {
+          @Override
+          public void actionPerformed(final ActionEvent e) {
+            System.out.println("the time is " + Instant.ofEpochMilli(e.getWhen()));
+            if (isBeep) {
+              Toolkit.getDefaultToolkit().beep();
+            }
+          }
+        };
+    final Timer timer = new Timer(this.interval, listener);
+    timer.start();
+  }
+```
+
+语法如下
+
+SuperType可以是类可以是接口
+
+```
+new SuperType(){
+
+}
+```
+
+### 双括号初始化
+
+1. 第一个大括号生成的是ArrayList的一个匿名子类
+
+2. 内部括号则是一个对象初始化块
+
+```java
+package com.interfaceclass.note;
+
+import java.util.ArrayList;
+
+/*
+ * @Author 不灵不落我是个机器人 .
+ * @Email: rzc307853639@gmail.com .
+ * @Date time: 2020/09/27/21:11 .
+ * @Description .
+ */
+public class DoubleBrace {
+  public static void main(final String[] args) {
+    final ArrayList<String> friends = new ArrayList<>();
+    friends.add("Tom");
+    friends.add("jerry");
+    System.out.println(friends.toString());
+    final ArrayList<String> myFriends =
+        new ArrayList<String>() {
+          {
+            add("Tom");
+            add("jerry");
+          }
+        };
+    System.out.println(myFriends.toString());
+  }
+}
+
+```
+
